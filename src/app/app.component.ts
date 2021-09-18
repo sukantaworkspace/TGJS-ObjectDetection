@@ -30,7 +30,6 @@ public async predictWithCocoModel(){
 webcam_init()
   {  
   this.video = <HTMLVideoElement> document.getElementById("vid");
-  
      navigator.mediaDevices
     .getUserMedia({
     audio: false,
