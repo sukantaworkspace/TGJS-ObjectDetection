@@ -61,14 +61,14 @@ webcam_init()
     const ctx = canvas.getContext("2d");
     
     canvas.width  = 300;
-    canvas.height = 480;
+    canvas.height = 400;
 
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     // Font options.
     const font = "16px sans-serif";
     ctx.font = font;
     ctx.textBaseline = "top";
-    ctx.drawImage(this.video,0, 0,300,480);
+    ctx.drawImage(this.video,0, 0,300,400);
 
     predictions.forEach(prediction => {
       const x = prediction.bbox[0];
