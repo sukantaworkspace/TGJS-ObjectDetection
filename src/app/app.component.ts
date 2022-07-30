@@ -14,7 +14,7 @@ export class AppComponent implements OnInit
   title = 'TF-ObjectDetection';
   id = 0
   private video: HTMLVideoElement;
-  arr: Array<ConstrainDOMString> = ["user", "environment", "left", "right"]
+  arr: Array<string> = ["user", "environment", "left", "right"]
 
   ngOnInit()
   { 
@@ -35,7 +35,7 @@ webcam_init()
     .getUserMedia({
     audio: false,
     video: {
-      facingMode: { exact: "environment"},
+      facingMode: { exact: this.arr[this.id]},
     }
      })
     .then(stream => {
