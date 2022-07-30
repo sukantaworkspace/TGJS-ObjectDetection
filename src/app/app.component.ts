@@ -46,7 +46,7 @@ webcam_init()
     });
   }
   onToggle() {
-    this.id = (this.id+1)%4
+    this.isRear= !this.isRear;
     this.webcam_init();
     this.predictWithCocoModel();
   }
