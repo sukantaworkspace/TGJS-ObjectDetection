@@ -12,8 +12,9 @@ import * as cocoSSD from '@tensorflow-models/coco-ssd';
 export class AppComponent implements OnInit 
 {
   title = 'TF-ObjectDetection';
+  id = 0
   private video: HTMLVideoElement;
-  
+  arr: Array<ConstrainDOMString> = ["user", "environment", "left", "right"]
 
   ngOnInit()
   { 
@@ -34,7 +35,7 @@ webcam_init()
     .getUserMedia({
     audio: false,
     video: {
-      facingMode: "user",
+      facingMode: this.arr[this.id],
     }
      })
     .then(stream => {
@@ -44,7 +45,10 @@ webcam_init()
     };
     });
   }
-  
+  onToggle() {
+    this.id = (this.id+1)%4
+    this.webcam_init()
+  }
   detectFrame = (video, model) => {
     model.detect(video).then(predictions => {
       this.renderPredictions(predictions);
