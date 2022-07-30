@@ -30,12 +30,13 @@ public async predictWithCocoModel(){
 
 webcam_init()
   {  
+    console.log("dd", this.isRear)
   this.video = <HTMLVideoElement> document.getElementById("vid");
      navigator.mediaDevices
     .getUserMedia({
     audio: false,
     video: {
-      facingMode: { exact: this.isRear? "environment" : "user"},
+      facingMode: (this.isRear? "environment" : "user"),
     }
      })
     .then(stream => {
