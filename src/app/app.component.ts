@@ -35,7 +35,7 @@ webcam_init()
     .getUserMedia({
     audio: false,
     video: {
-      facingMode: this.arr[this.id],
+      facingMode: "environment",
     }
      })
     .then(stream => {
@@ -47,7 +47,8 @@ webcam_init()
   }
   onToggle() {
     this.id = (this.id+1)%4
-    this.webcam_init()
+    this.webcam_init();
+    this.predictWithCocoModel();
   }
   detectFrame = (video, model) => {
     model.detect(video).then(predictions => {
