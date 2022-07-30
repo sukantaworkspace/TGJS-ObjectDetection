@@ -36,7 +36,7 @@ webcam_init()
     .getUserMedia({
     audio: false,
     video: {
-      facingMode: (this.isRear? "environment" : "user"),
+      facingMode: { exact: (this.isRear? "environment" : "user"), },
     }
      })
     .then(stream => {
